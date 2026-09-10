@@ -1,0 +1,37 @@
+{
+  "uid": "hubspot_rest_app",
+  "type": "app",
+  "config": {
+    "name": "Stack Moxie HubSpot REST",
+    "description": "Account-level OAuth app for the Stack Moxie HubSpot REST cog (scheduled scenario steps against HubSpot CRM APIs).",
+    "distribution": "marketplace",
+    "auth": {
+      "type": "oauth",
+      "redirectUrls": [
+        "https://app.stackmoxie.com/oauth/callback/hubspot-rest",
+        "https://staging-app.stackmoxie.com/oauth/callback/hubspot-rest",
+        "https://dev-app.stackmoxie.com/oauth/callback/hubspot-rest",
+        "http://localhost:1337/oauth/callback/hubspot-rest"
+      ],
+      "requiredScopes": [
+        "oauth",
+        "crm.objects.contacts.read",
+        "crm.objects.contacts.write"
+      ],
+      "optionalScopes": [],
+      "conditionallyRequiredScopes": []
+    },
+    "permittedUrls": {
+      "fetch": [
+        "https://api.hubapi.com"
+      ],
+      "iframe": [],
+      "img": []
+    },
+    "support": {
+      "supportEmail": "support@stackmoxie.com",
+      "documentationUrl": "https://app.stackmoxie.com/docs/3ukOwvIxeVqQHeY3Embg6K",
+      "supportUrl": "https://www.stackmoxie.com"
+    }
+  }
+}
