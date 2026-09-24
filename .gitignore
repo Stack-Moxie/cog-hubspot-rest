@@ -4,3 +4,7 @@ hsprofile.*.json
 .env
 .DS_Store
 *.log
+cog/node_modules/
+cog/coverage/
+cog/.nyc_output/
+cog/build/

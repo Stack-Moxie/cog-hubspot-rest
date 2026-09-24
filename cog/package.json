@@ -1,0 +1,89 @@
+{
+  "name": "cog-hubspot-rest",
+  "version": "0.6.1",
+  "description": "HubSpot REST Cog for Stack Moxie (developer-platform OAuth + REST; not mcp.hubspot.com)",
+  "license": "MIT",
+  "cog": {
+    "name": "stackmoxie/hubspot-rest",
+    "label": "HubSpot REST",
+    "homepage": "https://github.com/Stack-Moxie/cog-hubspot-rest",
+    "authHelpUrl": "https://developers.hubspot.com/docs/api/private-apps"
+  },
+  "scripts": {
+    "build-docker": "docker build -t stackmoxie/hubspot-rest:$npm_package_version -t stackmoxie/hubspot-rest:latest .",
+    "build-proto": "scripts/build-proto.sh",
+    "build-ts": "tsc",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "check-engine package.json && node -r ts-node/register src/core/grpc-server.ts",
+    "test": "nyc mocha -r ts-node/register test/*.ts test/**/*.ts test/**/**/*.ts",
+    "version": "crank cog:readme stackmoxie/hubspot-rest && git add README.md"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "test/**/*.ts",
+      "**/*.js",
+      "src/core/grpc-server.ts"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "all": true
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.2",
+    "@types/google-protobuf": "^3.2.7",
+    "@types/mocha": "^5.2.7",
+    "@types/needle": "^2.0.4",
+    "@types/node": "^12.0.4",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "check-engine": "^1.10.1",
+    "grpc-tools": "^1.7.3",
+    "grpc_tools_node_protoc_ts": "^2.5.1",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "sinon-chai": "^3.3.0",
+    "ts-sinon": "^1.0.17",
+    "tslint": "^5.17.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^9.1.0",
+    "@run-crank/utilities": "^0.5.2",
+    "ajv": "^6.12.6",
+    "async": "^2.6.4",
+    "decode-uri-component": "^0.2.2",
+    "flat": "^5.0.2",
+    "glob-parent": "^5.1.2",
+    "google-protobuf": "^3.8.0",
+    "grpc": "^1.24.11",
+    "handlebars": "^4.7.7",
+    "highlight.js": "^9.18.5",
+    "hosted-git-info": "^2.8.9",
+    "hubspot": "^2.3.14",
+    "ini": "^1.3.8",
+    "lodash": "^4.17.21",
+    "mailgun-js": "^0.22.0",
+    "minimatch": "^3.1.2",
+    "minimist": "^1.2.7",
+    "moment": "^2.29.4",
+    "path-parse": "^1.0.7",
+    "pathval": "^1.1.1",
+    "qs": "^6.5.3",
+    "redis": "^3.1.2",
+    "set-getter": "^0.1.1",
+    "striptags": "^3.2.0",
+    "ts-node": "^8.3.0",
+    "y18n": "^3.2.2"
+  }
+}
