@@ -33,7 +33,7 @@ class ClientWrapper {
   auth: grpc.Metadata;
   refreshedAccessToken: string;
 
-  connectToV3 = async () => {
+  async connectToV3() {
     if (this.auth.get('refreshToken').toString()) {
       this.clientV3 = new Client();
       const result = await this.clientV3.oauth.tokensApi.create(
