@@ -27,7 +27,7 @@ describe('Cog:GetManifest', () => {
     const version: string = JSON.parse(fs.readFileSync('package.json').toString('utf8')).version;
     cogUnderTest.getManifest(null, (err, manifest: CogManifest) => {
       expect(manifest.getName()).to.equal('stackmoxie/hubspot-rest');
-      expect(manifest.getLabel()).to.equal('HubSpot');
+      expect(manifest.getLabel()).to.equal('HubSpot REST');
       expect(manifest.getVersion()).to.equal(version);
       done();
     });
